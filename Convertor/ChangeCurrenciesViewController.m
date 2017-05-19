@@ -61,18 +61,27 @@
 }
 
 //this fuct init by fast access buttons
+//set selected currency in mainVC
 //
 //param:
 //       button with selected currency
 //
-//fuct setted this selected currency to mainVC - CVC
 - (IBAction)setFastCurrence:(id)sender {
+    [self setNewCurrencyInCVC:[[sender titleLabel]text]];
+}
+
+//fuct setted this selected currency to mainVC - CVC
+//
+//param:
+//          NSString - currencyShortName - short name of new currency
+-(void)setNewCurrencyInCVC:(NSString *)currencyShortName{
     if (isNeeded) {
-        self.CVC.neededCurrency=[[sender titleLabel]text];
+        self.CVC.neededCurrency=currencyShortName;
     }
     if (isBase) {
-        self.CVC.baseCurrency=[[sender titleLabel]text];
+        self.CVC.baseCurrency=currencyShortName;
     }
+    [self updateView];
     [self.CVC updateView];
 }
 
@@ -82,9 +91,7 @@
 //fuct setupping and show CurrenciesTVC
 - (IBAction)setOtherCurrence:(id)sender {
     CurrenciesTVC *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"listOfCurr"];
-    tvc.CVC=[self CVC];
-    tvc.isBase=isBase;
-    tvc.isNeeded=isNeeded;
+    tvc.changeVC=self;
     
     //we need navContr to set searchbar in it, and also to solve problem with transparent statusbar
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tvc];

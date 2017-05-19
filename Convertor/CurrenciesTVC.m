@@ -7,9 +7,8 @@
 //
 
 #import "CurrenciesTVC.h"
-#import "SerchResultViewController.h"
 
-@interface CurrenciesTVC ()<UISearchResultsUpdating, UISearchControllerDelegate>
+@interface CurrenciesTVC ()
 
 @property NSMutableArray *arrOfCurr;//full array of currencies like "XXX | xxxxxxxx"
 @property NSMutableArray *result;//list of currencies which show in table view
@@ -21,10 +20,7 @@
 @end
 
 @implementation CurrenciesTVC
-@synthesize CVC;
-@synthesize isBase;
-@synthesize isNeeded;
-
+@synthesize changeVC;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,11 +28,16 @@
     [self setupPresentingData];
     [self setupSearchController];
     [self setupNavigationBar];
-    
 }
 
 -(void)setupPresentingData{
     //get list from userdefaults
+    
+    /*
+     *
+     *TODO: handle if dict is not avalible(if first start of app and internet isnt good)
+     *
+     */
     NSUserDefaults *uD=[NSUserDefaults standardUserDefaults];
     NSDictionary *dictOfAvalibleCurrenciece = [uD objectForKey:@"listKey"];
     
@@ -115,22 +116,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //get short name of selected currency(first 3 symbols of string from result array)
     NSString *currencyShort = [[self.result objectAtIndex:indexPath.row] substringToIndex:3];
-    [self setCurrencyInRootVC:currencyShort];
+    [self setCurrencyInChangeVC:currencyShort];
 }
 
 //param:
 //       currencyShort - NSString - short name of selected currency
--(void)setCurrencyInRootVC:(NSString *)currencyShort{
-    if (isNeeded) {
-        self.CVC.neededCurrency = currencyShort;
-        isNeeded = false;
-    }
-    if (isBase) {
-        self.CVC.baseCurrency = currencyShort;
-        isBase = false;
-    }
-    
-    [self.CVC updateView];
+-(void)setCurrencyInChangeVC:(NSString *)currencyShort{
+    [self.changeVC setNewCurrencyInCVC:currencyShort];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -167,7 +159,8 @@
     
     //with this taprecogniser we resolve problem wich conclude in need to tap twice to select
     //  row in tableview when we search
-    UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTap:)];
+    UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                          action:@selector(didTap:)];
     [self.view addGestureRecognizer:gest];
 }
 
@@ -178,7 +171,8 @@
     //get cell was touched
     CGPoint touch = [gest locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:touch];
-    UITableViewCell *cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self tableView:self.tableView
+                      cellForRowAtIndexPath:indexPath];
     
     //selecting cell by touch
     [cell setSelected:YES animated:YES];
@@ -188,7 +182,7 @@
     
     //set new currency in mainviewcontroller
     
-    [self setCurrencyInRootVC:currencyShort];
+    [self setCurrencyInChangeVC:currencyShort];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConverterViewController.h"
+#import "ChangeCurrenciesViewController.h"
 
 //Doc for CurrenciesTVC class
 //
@@ -16,16 +16,15 @@
 //input params:
 //              isBase - BOOL - if changing currency is currency of input number set YES
 //              isNeeded - BOOL - if changing currency is target currency set YES
-//              CVC - reference to main view controller(to set changed currency)
+//              ChangeCurrenciesViewController - reference to ChangeCurrenciesViewController(to set changed currency)
 //
 //output:
-//              new currency name setted in CVC
+//              new currency name setted in ChangeCurrenciesViewController
 
 
 @interface CurrenciesTVC : UITableViewController <UISearchControllerDelegate,UISearchResultsUpdating,UISearchBarDelegate>
 
-@property ConverterViewController *CVC;
-@property BOOL isBase;
-@property BOOL isNeeded;
+@property ChangeCurrenciesViewController *changeVC;
+
 
 @end

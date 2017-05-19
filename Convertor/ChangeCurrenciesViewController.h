@@ -33,4 +33,10 @@
 
 -(void)updateView;
 
+//fuct setted this selected currency to mainVC - CVC
+//
+//param:
+//          NSString - currencyShortName - short name of new currency
+-(void)setNewCurrencyInCVC:(NSString *)currencyShortName;
+
 @end
