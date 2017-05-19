@@ -12,11 +12,11 @@
 		23D1582A1EC9F12E00E64067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D158281EC9F12E00E64067 /* Main.storyboard */; };
 		23D1582C1EC9F12E00E64067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D1582B1EC9F12E00E64067 /* Assets.xcassets */; };
 		23D1582F1EC9F12E00E64067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D1582D1EC9F12E00E64067 /* LaunchScreen.storyboard */; };
-		23D158381EC9F23100E64067 /* ConverterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D158371EC9F23100E64067 /* ConverterViewController.m */; };
 		23D1583B1EC9F60100E64067 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D1583A1EC9F60100E64067 /* Calc.m */; };
 		23D1583E1ECA23BA00E64067 /* ExchangeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D1583D1ECA23BA00E64067 /* ExchangeAPI.m */; };
 		23D158421ECA376B00E64067 /* CurrenciesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D158411ECA376B00E64067 /* CurrenciesTVC.m */; };
 		23D1584B1ECBB0B100E64067 /* ChangeCurrenciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D1584A1ECBB0B100E64067 /* ChangeCurrenciesViewController.m */; };
+		23EA2B501ECF718D0065F736 /* ConverterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EA2B4F1ECF718D0065F736 /* ConverterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,6 @@
 		23D1582B1EC9F12E00E64067 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23D1582E1EC9F12E00E64067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23D158301EC9F12E00E64067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23D158361EC9F23100E64067 /* ConverterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConverterViewController.h; path = ../ConverterViewController.h; sourceTree = "<group>"; };
-		23D158371EC9F23100E64067 /* ConverterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConverterViewController.m; path = ../ConverterViewController.m; sourceTree = "<group>"; };
 		23D158391EC9F60100E64067 /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calc.h; sourceTree = "<group>"; };
 		23D1583A1EC9F60100E64067 /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc.m; sourceTree = "<group>"; };
 		23D1583C1ECA23BA00E64067 /* ExchangeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeAPI.h; sourceTree = "<group>"; };
@@ -38,6 +36,8 @@
 		23D158411ECA376B00E64067 /* CurrenciesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrenciesTVC.m; sourceTree = "<group>"; };
 		23D158491ECBB0B100E64067 /* ChangeCurrenciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeCurrenciesViewController.h; sourceTree = "<group>"; };
 		23D1584A1ECBB0B100E64067 /* ChangeCurrenciesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCurrenciesViewController.m; sourceTree = "<group>"; };
+		23EA2B4E1ECF718D0065F736 /* ConverterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterViewController.h; sourceTree = "<group>"; };
+		23EA2B4F1ECF718D0065F736 /* ConverterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +70,8 @@
 		23D1581E1EC9F12E00E64067 /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				23D158361EC9F23100E64067 /* ConverterViewController.h */,
-				23D158371EC9F23100E64067 /* ConverterViewController.m */,
+				23EA2B4E1ECF718D0065F736 /* ConverterViewController.h */,
+				23EA2B4F1ECF718D0065F736 /* ConverterViewController.m */,
 				23D158401ECA376B00E64067 /* CurrenciesTVC.h */,
 				23D158411ECA376B00E64067 /* CurrenciesTVC.m */,
 				23D158491ECBB0B100E64067 /* ChangeCurrenciesViewController.h */,
@@ -173,9 +173,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23D1583B1EC9F60100E64067 /* Calc.m in Sources */,
+				23EA2B501ECF718D0065F736 /* ConverterViewController.m in Sources */,
 				23D1583E1ECA23BA00E64067 /* ExchangeAPI.m in Sources */,
 				23D158421ECA376B00E64067 /* CurrenciesTVC.m in Sources */,
-				23D158381EC9F23100E64067 /* ConverterViewController.m in Sources */,
 				23D1584B1ECBB0B100E64067 /* ChangeCurrenciesViewController.m in Sources */,
 				23D158241EC9F12E00E64067 /* AppDelegate.m in Sources */,
 				23D158211EC9F12E00E64067 /* main.m in Sources */,
